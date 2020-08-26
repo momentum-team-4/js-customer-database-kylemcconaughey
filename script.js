@@ -51,8 +51,8 @@ function displayCustomers() {
 
         //birthdate & registration
         let birthAndRegEl = document.createElement('p');
-        let birthDate = customer.dob;
-        let regDate = customer.registered;
+        let birthDate = moment(customer.dob);
+        let regDate = moment(customer.registered);
         birthAndRegEl.innerHTML = 'DOB: ' + birthDate.format('MMM Do, YYYY') + '<br>' + 'Customer since: ' + regDate.format('MMM Do,YYYY');
 
         //append everything created above
