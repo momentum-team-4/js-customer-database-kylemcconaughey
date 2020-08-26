@@ -1,0 +1,56 @@
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#pageTitle {
+    padding: 2rem;
+    padding-left: 32%;
+}
+
+#customerCards * {
+    display: inline-flex;
+    flex-flow: wrap;
+}
+
+li {
+    list-style: none;
+    align-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
+    width: 20%;
+}
+
+h2 {
+    text-transform: capitalize;
+    white-space: nowrap;
+    margin: auto;
+    padding: 1rem;
+}
+
+p {
+    text-transform: capitalize;
+    text-align: center;
+    padding: 0.25rem;
+    margin: auto;
+}
+
+#customerCards img {
+    height: auto;
+    width: 100%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 75%;
+    border-bottom-left-radius: 75%;
+    border-bottom-right-radius: 50%;
+    margin: auto;
+    border: 0.5rem outset;
+}
+
+a {
+    color: lightslategray;
+    margin:auto;
+    padding: 0.5rem;
+}
