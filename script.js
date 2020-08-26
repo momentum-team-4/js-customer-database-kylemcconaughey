@@ -19,43 +19,41 @@ function getState(st) {
     }
 }
 
-console.log(getState(customers[0].location.state))
+// customer.classList.add('class')
 
 function displayCustomers() {
-    for (let i = 0; i < customers.length; i++) {
+    for (let customer of customers) {
 
         //card
         let listElement = document.createElement('li');
 
         //headshot
         let imageEl = document.createElement('img');
-        imageEl.src = customers[i].picture.large;
+        imageEl.src = customer.picture.large;
 
         //Name
         let nameBlock = document.createElement('h2');
-        nameBlock.innerText = customers[i].name.first + ' ' + customers[i].name.last;
+        nameBlock.innerText = customer.name.first + ' ' + customer.name.last;
 
         //address
         let addressEl = document.createElement('p');
-        addressEl.innerHTML = customers[i].location.street + ' ' + customers[i].location.city + ', ' + getState(customers[i].location.state) + ' ' + customers[i].location.postcode;
+        addressEl.innerHTML = customer.location.street + '<br>' + customer.location.city + ', ' + getState(customer.location.state) + ' ' + customer.location.postcode;
 
         //phone numbers
         let homeNumEl = document.createElement('p');
-        homeNumEl.innerHTML = 'Home: ' + customers[i].phone;
         let cellNumEl = document.createElement('p');
-        cellNumEl.innerHTML = 'Cell: ' + customers[i].cell;
+        homeNumEl.innerHTML = 'Home: ' + customer.phone + '<br>' + 'Cell: ' + customer.cell;
+
 
         //email
         let emailEl = document.createElement('a');
-        emailEl.innerHTML = customers[i].email;
+        emailEl.innerHTML = customer.email;
 
-        //birthdate
-        let birthEl = document.createElement('p');
-        birthEl.innerHTML = 'DOB: ' + customers[i].dob.substring(0, 10);
-
-        //date they became a customer (registered)
-        let regEl = document.createElement('p');
-        regEl.innerHTML = 'Customer since: ' + customers[i].registered.substring(0, 10);
+        //birthdate & registration
+        let birthAndRegEl = document.createElement('p');
+        let birthDate = customer.dob;
+        let regDate = customer.registered;
+        birthAndRegEl.innerHTML = 'DOB: ' + birthDate.format('MMM Do, YYYY') + '<br>' + 'Customer since: ' + regDate.format('MMM Do,YYYY');
 
         //append everything created above
         listElement.appendChild(imageEl);
@@ -63,9 +61,9 @@ function displayCustomers() {
         listElement.appendChild(emailEl);
         listElement.appendChild(homeNumEl);
         listElement.appendChild(cellNumEl);
-        listElement.appendChild(birthEl);
-        listElement.appendChild(regEl);
+        // listElement.appendChild(regEl);
         listElement.appendChild(addressEl);
+        listElement.appendChild(birthAndRegEl);
 
         //append the card itself to <ul id='customerCards'></ul>
         customerCards.appendChild(listElement);
